@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        HashSet<string> cars
+            = new HashSet<string>();
+        string command = Console.ReadLine();
+
+        while (command != "END")
+        {
+            string[] commandInfo = command.Split(", ");
+            string direction = commandInfo[0];
+            string number = commandInfo[1];
+
+            if (commandInfo[0] == "IN")
+            {
+                cars.Add(number);
+            }
+            else if (commandInfo[0] == "OUT")
+            {
+                cars.Remove(number);
+            }
+            command = Console.ReadLine();
+        }
+
+        if (cars.Count > 0)
+        {
+            foreach (var name in cars)
+            {
+                Console.WriteLine(name);
+            }
+        
+        }
+        else
+        {
+            Console.WriteLine("Parking Lot is Empty");
+        }
+
+
+
+
+
+
+    }
+
+}

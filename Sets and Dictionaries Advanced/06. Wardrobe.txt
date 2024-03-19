@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        Dictionary<string, Dictionary<string, int>> clothes = new Dictionary<string, Dictionary<string, int>>();
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            string command = Console.ReadLine();
+            string[] commandInfo = command.Split(new[] { " -> ", "," }, StringSplitOptions.RemoveEmptyEntries);
+            string color = commandInfo[0];
+            if (!clothes.ContainsKey(color))
+            {
+                clothes.Add(color, new Dictionary<string, int>());
+            }
+            if (clothes.ContainsKey(color))
+            {
+                for (int j = 1; j < commandInfo.Length; j++)
+                {
+                    string item = commandInfo[j];
+
+                    if (!clothes[color].ContainsKey(item))
+                    {
+                        clothes[color].Add(item, 1);
+                    }
+                    else
+                    {
+                        clothes[color][item]++;
+                    }
+                }
+            }
+        }
+        string[] searchQuery = Console.ReadLine().Split();
+        string searchColor = searchQuery[0];
+        string searchClothing = searchQuery[1];
+
+        foreach (var color in clothes)
+        {
+            Console.WriteLine($"{color.Key} clothes:");
+            foreach (var clothing in color.Value)
+            {
+                if (clothing.Key == searchClothing && color.Key == searchColor)
+                {
+                    Console.WriteLine($"* {clothing.Key} - {clothing.Value} (found!)");
+                }
+                else
+                {
+                    Console.WriteLine($"* {clothing.Key} - {clothing.Value}");
+                }
+            }
+        }
+    }
+
+}

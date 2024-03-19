@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        HashSet<int> set1 = new HashSet<int>();
+        HashSet<int> set2 = new HashSet<int>();
+        List<int> list = new List<int>();
+        int[] arr1 = Console.ReadLine()
+               .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+               .Select(int.Parse)
+               .ToArray();
+        int n = arr1[0];
+        int m = arr1[1];
+
+        for (int i = 0; i < n; i++)
+        {
+            int toAdd = int.Parse(Console.ReadLine());
+            set1.Add(toAdd);
+            
+        }
+
+        for (int i = 0; i < m; i++)
+        {
+            int toAdd = int.Parse(Console.ReadLine());
+            set2.Add(toAdd);
+            
+        }
+
+        foreach (int currentnum in set1)
+        {
+            if (set2.Contains(currentnum))
+            {
+                list.Add(currentnum);
+            }
+        }
+
+        Console.WriteLine(string.Join(" ", list));
+
+    }
+
+}
