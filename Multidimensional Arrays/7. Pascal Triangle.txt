@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+
+        int n = int.Parse(Console.ReadLine());
+        long[][] pascleTriangle = new long[n][];
+        pascleTriangle[0] = new long[1] { 1 };
+
+        for (int row = 1; row < n; row++)
+        {
+            pascleTriangle[row] = new long[pascleTriangle[row - 1].Length + 1];
+
+            for (int col = 0; col < pascleTriangle[row].Length; col++)
+            {
+                if (pascleTriangle[row - 1].Length > col)
+                {
+                    pascleTriangle[row][col] += pascleTriangle[row - 1][col];
+                }
+                if (col > 0)
+                {
+                    pascleTriangle[row][col] += pascleTriangle[row - 1][col - 1];
+                }
+            }
+        }
+
+
+        for (int row = 0; row < pascleTriangle.Length; row++)
+        {
+            Console.WriteLine($"{string.Join(" ", pascleTriangle[row])}");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+}
