@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+
+
+        string[] songs = Console.ReadLine()
+              .Split(", ", StringSplitOptions.RemoveEmptyEntries)
+              .ToArray();
+
+        Queue<string> realSongs = new Queue<string>(songs);
+
+        while (realSongs.Count > 0)
+        {
+            string command = Console.ReadLine();
+            string[] commandInfo = command.Split(" ");
+
+            if (commandInfo[0] == "Play")
+            {
+                realSongs.Dequeue();
+            }
+            else if (commandInfo[0] == "Add")
+            {
+
+                var songFullname = command.Substring(4);
+
+
+                if (realSongs.Contains(songFullname))
+                {
+                    Console.WriteLine($"{songFullname} is already contained!");
+                }
+                else
+                {
+                    realSongs.Enqueue(songFullname);
+                }
+
+
+            }
+            else if (commandInfo[0] == "Show")
+            {
+                Console.WriteLine(String.Join(", ", realSongs));
+            }
+        }
+        Console.WriteLine("No more songs!");
+
+
+
+
+
+
+
+
+
+
+    }
+
+}

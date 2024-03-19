@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+
+
+        int[] orders = Console.ReadLine()
+              .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+              .Select(int.Parse)
+              .ToArray();
+
+        Stack<int> realNumbers = new Stack<int>(orders);
+        int rackCapacity = int.Parse(Console.ReadLine());
+        int rackCounter = 1;
+        int rackReset = rackCapacity;
+
+
+        while (realNumbers.Count > 0)
+        {
+            int currentOrder = realNumbers.Peek();
+            rackCapacity -= currentOrder;
+            if (rackCapacity >= 0)
+            {                
+                realNumbers.Pop();
+                
+            }
+            else if (rackCapacity < 0)
+            {
+                rackCounter++;
+                rackCapacity = rackReset;
+            }
+
+        }
+
+        
+        Console.WriteLine(rackCounter);
+
+
+
+
+
+    }
+
+}

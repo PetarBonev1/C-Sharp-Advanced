@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        int cycles = int.Parse(Console.ReadLine());
+
+        Stack<int> realNumbers = new Stack<int>();
+
+        for (int i = 0; i < cycles; i++)
+        {
+            string command = Console.ReadLine();
+            string[] commandinfo = command.Split(" ");
+
+            if (commandinfo[0] == "1")
+            {
+                int numToAdd = int.Parse(commandinfo[1]);
+                realNumbers.Push(numToAdd);
+            }
+            else if (commandinfo[0] == "2")
+            {
+                if (realNumbers.Count > 0)
+                {
+                    realNumbers.Pop();
+                }
+
+            }
+            else if (commandinfo[0] == "3")
+            {
+                if (realNumbers.Count > 0)
+                {
+                    Console.WriteLine(realNumbers.Max());
+                }
+            }
+            else if (commandinfo[0] == "4")
+            {
+                if (realNumbers.Count > 0)
+                {
+                    Console.WriteLine(realNumbers.Min());
+                }
+
+            }
+        }
+        Console.WriteLine(String.Join(", ", realNumbers));
+
+
+
+
+    }
+
+}

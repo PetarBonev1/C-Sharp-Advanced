@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        Queue<int> numbers = new Queue<int>();
+        int[] arr1 = Console.ReadLine()
+               .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+               .Select(int.Parse)
+               .ToArray();
+
+        foreach (int number in arr1)
+        {
+            if (number % 2 == 0)
+            {
+                numbers.Enqueue(number);
+            }
+        }
+        Console.WriteLine(String.Join(", ", numbers));
+    }
+
+}

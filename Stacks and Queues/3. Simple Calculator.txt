@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Stack<string> numbers = new Stack<string>();
+        Stack<string> reversed = new Stack<string>();
+        string[] arr1 = Console.ReadLine()
+               .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+               //.Select(int.Parse)
+               .ToArray();
+
+        foreach (string item in arr1)
+        {
+            numbers.Push(item);
+        }
+        int sum = 0;
+        foreach (string item in numbers)
+        {
+            reversed.Push(item);
+        }
+        int number = reversed.Count;
+
+
+        for (int i = 0; i < number; i++)
+        {
+
+            if (reversed.Peek() == "+")
+            {
+                reversed.Pop();
+                sum += int.Parse(reversed.Pop());
+                i++;
+                
+            }
+            else if (reversed.Peek() == "-")
+            {
+                reversed.Pop();
+                sum -= int.Parse(reversed.Pop());
+                i++;
+            }
+            else
+            {
+                sum += int.Parse(reversed.Pop());
+                i++;
+
+            }
+
+        }
+        Console.WriteLine(sum);
+
+    }
+
+}

@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        int quantityOfFood = int.Parse(Console.ReadLine());
+
+        int[] orders = Console.ReadLine()
+              .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+              .Select(int.Parse)
+              .ToArray();
+
+        Queue<int> realNumbers = new Queue<int>(orders);
+        Console.WriteLine(realNumbers.Max());
+
+        while (realNumbers.Count > 0)
+        {
+            int currentOrder = realNumbers.Peek();
+            quantityOfFood -= currentOrder;
+            if (quantityOfFood < 0)
+            {
+                Console.Write("Orders left: ");
+                Console.Write(String.Join(" ", realNumbers));
+                return;
+            }
+            realNumbers.Dequeue();
+            
+        }
+        Console.WriteLine("Orders complete");
+
+
+
+
+
+    }
+
+}
