@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        
+        
+        string[] names = Console.ReadLine().Split(" ",StringSplitOptions.RemoveEmptyEntries);
+
+        print(names, x => Console.WriteLine(x));
+        
+
+
+
+
+
+
+
+
+    }
+    public static void print(string [] names, Action<string> callback)
+    {
+        foreach (var item in names)
+        {
+            Console.WriteLine($"Sir {item}");
+        }
+    
+    }
+}
+

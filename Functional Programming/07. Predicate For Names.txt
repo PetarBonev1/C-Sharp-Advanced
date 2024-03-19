@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int n = int.Parse(Console.ReadLine());
+        string[] numbers = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).ToArray();
+        Func<string, bool> filter = name => name.Length <= n;
+        string[] result = numbers.Where(filter).ToArray();
+        Console.WriteLine(String.Join(Environment.NewLine,result));
+
+        
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+   
+
+    
+
+}
+
+

@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] inputNum = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+
+        Func<int[], int> getMin = numbers=>numbers.Min();
+
+
+        int result =getMin(inputNum);
+        Console.WriteLine(result);
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+    
+}
+

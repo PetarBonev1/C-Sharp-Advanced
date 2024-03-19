@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        Func<string, bool> iscapital = w => char.IsUpper(w[0]);
+        
+        string[] arr = Console.ReadLine().Split(" ",StringSplitOptions.RemoveEmptyEntries);
+            
+
+        Console.WriteLine(String.Join("\n",arr.Where(iscapital)));
+
+
+
+
+
+
+
+
+    }
+}
+

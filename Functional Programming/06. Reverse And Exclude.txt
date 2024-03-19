@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        int[] numbers = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+        int n = int.Parse(Console.ReadLine());
+
+        Func<int, bool> filter = number => number % n != 0;
+
+        int[] result = numbers.Where(filter).ToArray();
+        result = result.Reverse().ToArray();
+
+        Console.WriteLine(string.Join(" ", result));
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+}
+
+
